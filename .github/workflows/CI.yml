@@ -15,25 +15,25 @@ jobs:
       matrix:
         target:
           - arch: "aarch64_generic"
-            sdk: "https://downloads.openwrt.org/releases/22.03.5/targets/rockchip/armv8/openwrt-sdk-22.03.5-rockchip-armv8_gcc-11.2.0_musl.Linux-x86_64.tar.xz"
+            sdk: "https://downloads.openwrt.org/releases/19.07.10/targets/rockchip/armv8/openwrt-sdk-19.07.10-rockchip-armv8_gcc-7.5.0_musl.Linux-x86_64.tar.xz"
           - arch: "arm_cortex-a9"
-            sdk: "https://downloads.openwrt.org/releases/22.03.5/targets/bcm53xx/generic/openwrt-sdk-22.03.5-bcm53xx-generic_gcc-11.2.0_musl_eabi.Linux-x86_64.tar.xz"
+            sdk: "https://downloads.openwrt.org/releases/19.07.10/targets/mvebu/cortexa9/openwrt-sdk-19.07.10-mvebu-cortexa9_gcc-7.5.0_musl_eabi.Linux-x86_64.tar.xz"
           - arch: "arm_cortex-a15"
-            sdk: "https://downloads.openwrt.org/releases/22.03.5/targets/ipq806x/generic/openwrt-sdk-22.03.5-ipq806x-generic_gcc-11.2.0_musl_eabi.Linux-x86_64.tar.xz"
+            sdk: "https://downloads.openwrt.org/releases/19.07.10/targets/ipq806x/generic/openwrt-sdk-19.07.10-ipq806x-generic_gcc-7.5.0_musl_eabi.Linux-x86_64.tar.xz"
           - arch: "aarch64_cortex-a53"
-            sdk: "https://downloads.openwrt.org/releases/22.03.5/targets/bcm27xx/bcm2710/openwrt-sdk-22.03.5-bcm27xx-bcm2710_gcc-11.2.0_musl.Linux-x86_64.tar.xz"
+            sdk: "https://downloads.openwrt.org/releases/19.07.10/targets/bcm27xx/bcm2710/openwrt-sdk-19.07.10-bcm27xx-bcm2710_gcc-7.5.0_musl.Linux-x86_64.tar.xz"
           - arch: "aarch64_cortex-a72"
-            sdk: "https://downloads.openwrt.org/releases/22.03.5/targets/bcm27xx/bcm2711/openwrt-sdk-22.03.5-bcm27xx-bcm2711_gcc-11.2.0_musl.Linux-x86_64.tar.xz"
+            sdk: "https://downloads.openwrt.org/releases/19.07.10/targets/bcm27xx/bcm2711/openwrt-sdk-19.07.10-bcm27xx-bcm2711_gcc-7.5.0_musl.Linux-x86_64.tar.xz"
           - arch: "arm_cortex-a7_neon-vfpv4"
-            sdk: "https://downloads.openwrt.org/releases/22.03.5/targets/ipq40xx/generic/openwrt-sdk-22.03.5-ipq40xx-generic_gcc-11.2.0_musl_eabi.Linux-x86_64.tar.xz"
+            sdk: "https://downloads.openwrt.org/releases/19.07.10/targets/ipq40xx/generic/openwrt-sdk-19.07.10-ipq40xx-generic_gcc-7.5.0_musl_eabi.Linux-x86_64.tar.xz"
           - arch: "x86_64"
-            sdk: "https://downloads.openwrt.org/releases/22.03.5/targets/x86/64/openwrt-sdk-22.03.5-x86-64_gcc-11.2.0_musl.Linux-x86_64.tar.xz"
+            sdk: "https://downloads.openwrt.org/releases/19.07.10/targets/x86/64/openwrt-sdk-19.07.10-x86-64_gcc-7.5.0_musl.Linux-x86_64.tar.xz"
           - arch: "i386_pentium4"
-            sdk: "https://downloads.openwrt.org/releases/22.03.5/targets/x86/generic/openwrt-sdk-22.03.5-x86-generic_gcc-11.2.0_musl.Linux-x86_64.tar.xz"
+            sdk: "https://downloads.openwrt.org/releases/19.07.10/targets/x86/generic/openwrt-sdk-19.07.10-x86-generic_gcc-7.5.0_musl.Linux-x86_64.tar.xz"
           - arch: "mips_74kc"
-            sdk: "https://downloads.openwrt.org/releases/22.03.5/targets/ath79/generic/openwrt-sdk-22.03.5-ath79-generic_gcc-11.2.0_musl.Linux-x86_64.tar.xz"
+            sdk: "https://downloads.openwrt.org/releases/19.07.10/targets/ath79/generic/openwrt-sdk-19.07.10-ath79-generic_gcc-7.5.0_musl.Linux-x86_64.tar.xz"
           - arch: "mipsel_24kc"
-            sdk: "https://downloads.openwrt.org/releases/22.03.5/targets/ramips/mt7621/openwrt-sdk-22.03.5-ramips-mt7621_gcc-11.2.0_musl.Linux-x86_64.tar.xz"
+            sdk: "https://downloads.openwrt.org/releases/19.07.10/targets/ramips/mt7621/openwrt-sdk-19.07.10-ramips-mt7621_gcc-7.5.0_musl.Linux-x86_64.tar.xz"
     steps:
       - uses: actions/checkout@v2
       - name: Install build requirements
@@ -61,7 +61,7 @@ jobs:
           git -C package/upx checkout 2c2ee0d696ea6084bee893a2861a7ed0729728ed # upx version: v2022-10-20
 
           #cat feeds.conf.default >> feeds.conf
-          echo 'src-git packages https://git.openwrt.org/feed/packages.git^8939b43659dabe9b737feee02976949ad0355adc' >> feeds.conf # feeds/packages: OpenWrt v23.05.0-rc2
+          echo 'src-git packages https://git.openwrt.org/feed/packages.git^1c5e4c80f' >> feeds.conf # feeds/packages: OpenWrt v19.07.10
           cat feeds.conf
 
           ./scripts/feeds update -a > /dev/null
